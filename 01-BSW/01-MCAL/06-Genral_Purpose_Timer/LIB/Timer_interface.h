@@ -31,24 +31,28 @@ typedef enum
 {
 	Disable_CNT,
 	Enable_CNT
+	
 }CNT_State;
 
 typedef enum
 {
 	Disable_TIM_Update_Interrupt,
 	Enable_TIM_Update_Interrupts
+	
 }TIM_Update_INT_State;
 
 typedef enum
 {
 	Disable_Update_Event,
 	Enable_Update_Event
+	
 }URS_State;
 
 typedef enum
 {
 	Disable_ARR_Buffer,
 	Enable_ARR_Buffer
+	
 }ARR_Buffer_State;
 
 typedef enum
@@ -57,31 +61,36 @@ typedef enum
 	Center_Aligned_Mode_1,
 	Center_Aligned_Mode_2,
 	Center_Aligned_Mode_3
+	
 }CMS_State;
 
 typedef enum
 {
 	UpCounter,
 	DownCounter
+	
 }DIR_State;
+
 
 typedef enum
 {
 	Div_1,
 	Div_2,
 	Div_3
+	
 }Clk_Div;
 
 typedef enum
 {
 	Counter_Not_stopped_Update_Event,
 	Counter_stopped_Update_Event
+	
 }OPM_State;
 
 typedef struct
 {
-	uint32 PeriodVal;
-	uint32 PrescalerVal;
+	uint32_t PeriodVal;
+	uint32_t PrescalerVal;
 	URS_State Update_event_State;
 	ARR_Buffer_State AutoReloadBuffer;
 	CMS_State Center_Aligned_Mode;
@@ -90,12 +99,13 @@ typedef struct
 	Clk_Div Clock_Div_Factor;
 	OPM_State OnePulse_Mode;
 	TIM_Update_INT_State UDI_State;
+	
 }TIM_ConfigType;
 
 
 ErrorStatus TIM_xInit(TIM_TypeDef *TIMERx,TIM_ConfigType *TIM_ConfigPtr);
-void TIM_vSetPeriodValue(TIM_TypeDef *TIMERx , uint32 PeriodVal);
-void TIM_vSetPrescalerValue(TIM_TypeDef *TIMERx , uint32 PrescalerVal);
+void TIM_vSetPeriodValue(TIM_TypeDef *TIMERx , uint32_t PeriodVal);
+void TIM_vSetPrescalerValue(TIM_TypeDef *TIMERx , uint32_t PrescalerVal);
 ErrorStatus TIM_xSetCounterState(TIM_TypeDef *TIMERx,CNT_State Copy_xState);
 ErrorStatus TIM_xSetURS_State(TIM_TypeDef *TIMERx,URS_State Copy_xUpdate_event_State);
 ErrorStatus TIM_xSetARR_Buffer(TIM_TypeDef *TIMERx,ARR_Buffer_State Copy_xAutoReloadBuffer);
